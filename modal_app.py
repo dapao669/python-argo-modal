@@ -275,7 +275,6 @@ fastapi_app = FastAPI(lifespan=lifespan)
     secrets=[app_secrets],
     timeout=86400,
     keep_warm=1,
-    region="ap-south-1"
 )
 @modal.asgi_app()
 def web_server():
@@ -297,6 +296,7 @@ def web_server():
             return Response(content=f"读取订阅时发生错误: {e}", status_code=500, media_type="text/plain; charset=utf-8")
     
     return fastapi_app
+
 
 
 
